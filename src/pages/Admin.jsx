@@ -21,11 +21,6 @@ const Admin = () => {
         setShowModal(false);
     };
 
-    const handleDelete = async (id) => {
-        // direct delete (kept if needed)
-        await eliminarProducto(id);
-    };
-
     const promptDelete = (id) => {
         setToDeleteId(id);
         setShowConfirm(true);

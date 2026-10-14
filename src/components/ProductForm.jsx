@@ -39,11 +39,12 @@ const ProductForm = ({ show, handleClose, productoAEditar }) => {
         }
 
         if (productoAEditar) {
-            await editarProducto(formData);
+            const guardado = await editarProducto(formData);
+            if (guardado) handleClose();
         } else {
-            await agregarProducto(formData);
+            const guardado = await agregarProducto(formData);
+            if (guardado) handleClose();
         }
-        handleClose();
     };
 
     return (

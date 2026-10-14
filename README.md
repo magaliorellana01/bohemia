@@ -7,7 +7,7 @@ Repositorio del proyecto "Velas Artesanales" — una tienda simple de velas hech
 
 - Frontend en React (Vite). Usa React Router para rutas y React Bootstrap para componentes visuales.
 - Context API para estado global: autenticación, carrito, productos y búsqueda.
-- Datos de productos obtenidos desde una API mock (MockAPI).
+- Cat�logo de ejemplo cargado desde `src/data/productos.js`; todav�a no hay backend.
 
 ## Requisitos
 
@@ -58,7 +58,7 @@ Si ingresás con cualquier otro email/contraseña la app iniciará sesión como 
 
 Comportamiento relacionado con admin:
 - Cuando un usuario es admin, el icono del carrito en el header se oculta.
-- En `/admin` puedes crear, editar y eliminar productos. Al eliminar se muestra un modal de confirmación.
+- En `/admin` se conserva la interfaz para crear, editar y eliminar productos, pero las acciones quedan pendientes del backend Laravel. Al eliminar se muestra un modal de confirmación.
 
 ## Búsqueda
 
@@ -78,18 +78,13 @@ Comportamiento relacionado con admin:
 - `src/components/ProductCard.jsx` - Tarjeta de producto y botón "Agregar al carrito".
 - `src/components/ListaProductos.jsx` - Lógica de filtrado y paginación.
 - `src/pages/Carrito.jsx` - Página del carrito (lista y resumen).
-- `src/pages/Admin.jsx` - Panel de administración (alta/edición/eliminación de productos).
+- `src/pages/Admin.jsx` - Interfaz del panel; las acciones CRUD quedan pendientes del backend Laravel.
 - `src/components/Login.jsx` - Componente de login (credenciales de admin visibles en el código para pruebas).
-- `src/context/ProductsContext.jsx` - Carga de productos desde la API mock.
+- `src/context/ProductsContext.jsx` - Expone el cat�logo local y avisa que el CRUD requiere el backend.
+- `src/data/productos.js` - Datos de ejemplo del cat�logo.
 - `src/context/CartContext.jsx` - Lógica del carrito (add/remove/decrease, totales).
 - `src/context/SearchContext.jsx` - Estado de búsqueda (`query`, `searchTerm`) y `submitSearch`.
 
-## API de productos
+## Cat�logo y administraci�n
 
-Los productos se cargan desde:
-
-```
-https://69378381f8dc350aff346c21.mockapi.io/products
-```
-
-
+El cat�logo usa datos de ejemplo definidos localmente. Crear, editar y eliminar productos no persiste cambios y quedar� disponible al integrar el backend propio.
