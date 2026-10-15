@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lato:wght@400;500;600;700&display=swap');
 
 :root {
   --color-primary: #A2C5AA; 
   --color-secondary: #C4A7A7;
   --color-text: #4F4A4A;      
-  --color-background: #F7F7F2;
+  --color-background: #F5F0E8;
   --color-borders: #E8E8E3;  
 
 
@@ -14,7 +15,12 @@
 
   --bs-body-color: var(--color-text);
   --bs-body-bg: var(--color-background);
-  --bs-font-family: 'system-ui', 'Avenir', 'Helvetica', 'Arial', sans-serif;
+  --bs-light-rgb: 245, 240, 232;
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-reading: 'Lato', Arial, sans-serif;
+  --font-body: var(--font-reading);
+  --bs-font-family: var(--font-body);
+  --bs-body-font-family: var(--font-body);
   
   --bs-link-color-rgb: var(--bs-secondary-rgb);
   --bs-link-hover-color: var(--color-primary);
@@ -23,10 +29,14 @@
 
 body {
   margin: 0;
-  font-family: var(--bs-font-family);
+  font-family: var(--font-body);
   background-color: var(--bs-body-bg);
   color: var(--bs-body-color);
   line-height: 1.6;
+}
+
+.bg-white {
+  background-color: var(--color-background) !important;
 }
 
 a {
@@ -40,7 +50,26 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
   font-weight: 600;
+}
+
+p,
+li,
+blockquote,
+figcaption {
+  font-family: var(--font-reading);
+}
+
+.navbar,
+.site-footer {
+  font-family: var(--font-body);
+}
+
+.navbar .nav-link {
+  font-family: var(--font-reading);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 

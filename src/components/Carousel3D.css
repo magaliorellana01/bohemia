@@ -1,0 +1,226 @@
+.home-page {
+    margin: -20px 0;
+    padding-top: 14px;
+    padding-bottom: 20px;
+    background-color: var(--color-background);
+}
+
+.carousel3d {
+    position: relative;
+    isolation: isolate;
+    z-index: 1;
+    padding-bottom: 240px;
+    overflow-x: clip;
+    overflow-y: visible;
+    background-color: var(--color-background);
+    touch-action: pan-y;
+}
+
+.carousel3d__scene {
+    position: relative;
+    height: var(--carousel-scene-height, clamp(300px, 27vw, 340px));
+    overflow-x: clip;
+    overflow-y: visible;
+    background-color: var(--color-background);
+}
+
+.carousel3d__title {
+    position: relative;
+    z-index: 25;
+    margin: 0;
+    padding: 24px 12px 20px;
+    color: #333D29;
+    font-family: var(--font-heading);
+    font-size: clamp(1.6rem, 2.7vw, 2.05rem);
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    line-height: 1.25;
+    text-align: center;
+    text-shadow: 0 3px 12px rgba(51, 61, 41, 0.14);
+}
+
+.carousel3d__stage {
+    position: absolute;
+    inset: 0;
+    perspective: 1050px;
+    transform-style: preserve-3d;
+    outline: none;
+}
+
+.carousel3d__item {
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    z-index: var(--orbit-order);
+    width: var(--candle-width);
+    height: 260px;
+    opacity: var(--candle-opacity);
+    transform: translate(-50%, -50%) translate3d(var(--orbit-x), var(--orbit-y), var(--orbit-z)) scale(var(--orbit-scale));
+    transform-style: preserve-3d;
+    transition: transform 680ms cubic-bezier(0.2, 0.72, 0.22, 1), opacity 680ms ease;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.carousel3d__item:focus-visible {
+    outline: 2px solid rgba(162, 197, 170, 0.9);
+    outline-offset: 4px;
+    border-radius: 50%;
+}
+
+.carousel3d__item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 10px rgba(25, 24, 20, 0.16));
+    user-select: none;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.carousel3d__arrow {
+    position: absolute;
+    z-index: 30;
+    top: 50%;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    place-items: center;
+    color: #333D29;
+    background: transparent;
+    border: 0;
+    border-radius: 50%;
+    font-size: 1.05rem;
+    transform: translateY(-50%);
+    transition: color 180ms ease, background-color 180ms ease;
+}
+
+.carousel3d__arrow:hover,
+.carousel3d__arrow:focus-visible {
+    color: #333D29;
+    background: rgba(162, 197, 170, 0.2);
+}
+
+.carousel3d__arrow:focus-visible {
+    outline: 2px solid #333D29;
+    outline-offset: 2px;
+}
+
+.carousel3d__arrow--previous {
+    left: max(10px, calc(50% - min(46vw, 560px)));
+}
+
+.carousel3d__arrow--next {
+    right: max(10px, calc(50% - min(46vw, 560px)));
+}
+
+.carousel3d__sensory {
+    position: absolute;
+    top: calc(var(--carousel-scene-height, clamp(300px, 27vw, 340px)) + 145px);
+    left: 50%;
+    width: min(560px, calc(100% - 32px));
+    margin: 0;
+    padding: 16px 22px 18px;
+    transform: translateX(-50%);
+    text-align: center;
+    background-color: #f5f7f2;
+    border: 1px solid rgba(162, 197, 170, 0.65);
+    border-radius: 12px;
+    box-shadow: 0 5px 18px rgba(51, 61, 41, 0.08);
+}
+
+.carousel3d__sensory-name {
+    margin: 0 0 5px;
+    color: #333D29;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.carousel3d__sensory-description {
+    margin: 0;
+    color: #4F4A4A;
+    font-size: 0.98rem;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+    .carousel3d {
+        --carousel-scene-height: 285px;
+        padding-bottom: 235px;
+    }
+
+    .carousel3d__scene {
+        height: var(--carousel-scene-height);
+    }
+
+    .carousel3d__item {
+        top: 80%;
+        width: min(var(--candle-width), 145px);
+        height: 218px;
+    }
+
+    .carousel3d__arrow {
+        top: 48%;
+        width: 44px;
+        height: 44px;
+        color: #333D29;
+    }
+
+    .carousel3d__arrow--previous {
+        left: 4px;
+    }
+
+    .carousel3d__arrow--next {
+        right: 4px;
+    }
+
+    .carousel3d__sensory {
+        top: calc(var(--carousel-scene-height) + 140px);
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel3d {
+        --carousel-scene-height: 265px;
+        padding-bottom: 215px;
+    }
+
+    .carousel3d__scene {
+        height: var(--carousel-scene-height);
+    }
+
+    .carousel3d__item {
+        top: 82%;
+        width: min(var(--candle-width), 112px);
+        height: 178px;
+    }
+
+    .carousel3d__arrow {
+        top: 46%;
+        width: 42px;
+        height: 42px;
+        font-size: 0.9rem;
+    }
+
+    .carousel3d__sensory {
+        top: calc(var(--carousel-scene-height) + 115px);
+        padding: 14px 16px 16px;
+    }
+
+    .carousel3d__sensory-name {
+        font-size: 1.12rem;
+    }
+
+    .carousel3d__sensory-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel3d__item,
+    .carousel3d__arrow {
+        transition-duration: 0.01ms;
+    }
+}

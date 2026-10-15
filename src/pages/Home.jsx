@@ -1,95 +1,74 @@
-import React from 'react';
-import { Carousel, Container, Row, Col, Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { LuTruck, LuLeaf, LuShieldCheck } from 'react-icons/lu';
+import Carousel3D from '../components/Carousel3D';
+import SellersSection from '../components/SellersSection';
+import ShopNowButton from '../components/ShopNowButton';
+import NewsletterSection from '../components/NewsletterSection';
+import imagenSection1 from '../assets/imgsection1.png';
+import imagenSection2 from '../assets/imgsection2.png';
+import './Home.css';
 
 export default function Home() {
     return (
-        <div>
-            <div className="d-none d-md-block">
-                <Carousel>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="https://placehold.co/1200x400/DABFBF/4F4A4A?text=Velas+Artesanales"
-                            alt="Velas Artesanales"
-                        />
-                        <Carousel.Caption>
-                            <h3>Crea Momentos Únicos</h3>
-                            <p>Nuestras velas están hechas a mano con cera de soja natural.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                    <Carousel.Item>
-                        <img
-                            className="d-block w-100"
-                            src="https://placehold.co/1200x400/A2C5AA/4F4A4A?text=Nuevas+Fragancias"
-                            alt="Nuevas Fragancias"
-                        />
-                        <Carousel.Caption>
-                            <h3>Nuevas Fragancias de Temporada</h3>
-                            <p>Descubre los aromas que tenemos para ti este invierno.</p>
-                        </Carousel.Caption>
-                    </Carousel.Item>
-                </Carousel>
-            </div>
+        <div className="home-page">
+            <Carousel3D />
 
-            <Container fluid className="p-5 mb-4 bg-light rounded-3 text-center">
-                <div className="container-fluid py-5">
-                    <h1 className="display-5 fw-bold">Aromas que Enamoran</h1>
-                    <p className="fs-4">Encuentra la fragancia perfecta para cada rincón de tu hogar. ¡Aprovecha nuestras ofertas!</p>
-                    <Button as={Link} to="/ofertas" size="lg" className="btn-custom-primary">
-                        Ver Ofertas
-                    </Button>
+            <section className="icon-section" aria-label="Beneficios de compra">
+                <div className="icon-section__item">
+                    <LuTruck className="icon-section__icon" aria-hidden="true" />
+                    <h2>Envío Gratis</h2>
+                    <p>En compras mayores a $20000</p>
                 </div>
-            </Container>
+                <div className="icon-section__item">
+                    <LuLeaf className="icon-section__icon" aria-hidden="true" />
+                    <h2>Ingredientes Naturales</h2>
+                    <p>Elaboradas con cera vegetal y esencias naturales.</p>
+                </div>
+                <div className="icon-section__item">
+                    <LuShieldCheck className="icon-section__icon" aria-hidden="true" />
+                    <h2>Pago Seguro</h2>
+                    <p>Tu compra está 100% protegida.</p>
+                </div>
+            </section>
 
-            <Container className="mt-5 text-center">
-                <h2>Nuestras Colecciones</h2>
-                <Row className="mt-4">
-                    <Col md={4} className="mb-4">
-                        <Card>
-                            <Card.Img variant="top" src="https://placehold.co/400x300/EED7C5/4F4A4A?text=Aromas+Florales" />
-                            <Card.Body>
-                                <Card.Title>Velas Florales</Card.Title>
-                                <Button as={Link} to="/productos?categoria=Velas%20Florales" variant="outline-dark">Descubrir</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={4} className="mb-4">
-                        <Card>
-                            <Card.Img variant="top" src="https://placehold.co/400x300/F4E8D1/4F4A4A?text=Aromas+Cítricos" />
-                            <Card.Body>
-                                <Card.Title>Velas Cítricas</Card.Title>
-                                <Button as={Link} to="/productos?categoria=Velas%20Cítricas" variant="outline-dark">Descubrir</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={4} className="mb-4">
-                        <Card>
-                            <Card.Img variant="top" src="https://placehold.co/400x300/C9D4C2/4F4A4A?text=Kits+de+Regalo" />
-                            <Card.Body>
-                                <Card.Title>Kits de Regalo</Card.Title>
-                                <Button as={Link} to="/productos?categoria=Kits%20de%20Regalo" variant="outline-dark">Descubrir</Button>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
-            <Container className="mt-5 mb-5">
-                 <Row className="text-center">
-                    <Col md={4}>
-                        <h4><i className="fa fa-leaf" aria-hidden="true"></i> Ingredientes Naturales</h4>
-                        <p>Cera de soja y aceites esenciales puros.</p>
-                    </Col>
-                    <Col md={4}>
-                        <h4><i className="fa fa-heart" aria-hidden="true"></i> Hecho a Mano</h4>
-                        <p>Cada vela es creada con amor y dedicación.</p>
-                    </Col>
-                    <Col md={4}>
-                        <h4><i className="fa fa-truck" aria-hidden="true"></i> Envío Seguro</h4>
-                        <p>Empaquetamos con cuidado para que lleguen perfectas.</p>
-                    </Col>
-                </Row>
-            </Container>
+            <section className="imagen-section" aria-label="Imágenes destacadas">
+                <div
+                    className="imagen-section__panel"
+                    role="group"
+                    aria-labelledby="imagen-section-title-aceites"
+                >
+                    <div
+                        className="imagen-section__photo"
+                        role="img"
+                        aria-label="Frasco de aceite esencial rodeado de plantas"
+                        style={{ '--imagen-panel': `url("${imagenSection1}")` }}
+                    />
+                    <div className="imagen-section__copy">
+                        <h2 id="imagen-section-title-aceites">Descubrí nuestros aceites esenciales</h2>
+                        <p>Aromas naturales que equilibran tu mente, calman tus emociones y revitalizan tu cuerpo. Nuestros aceites esenciales son 100% puros, extraídos de la naturaleza para acompañarte en tu bienestar diario.</p>
+                        <ShopNowButton className="imagen-section__button" />
+                    </div>
+                </div>
+                <div
+                    className="imagen-section__panel"
+                    role="group"
+                    aria-labelledby="imagen-section-title-kits"
+                >
+                    <div
+                        className="imagen-section__photo"
+                        role="img"
+                        aria-label="Kit de cuidado personal en una caja de regalo"
+                        style={{ '--imagen-panel': `url("${imagenSection2}")` }}
+                    />
+                    <div className="imagen-section__copy">
+                        <h2 id="imagen-section-title-kits">Descubrí nuestros kits regalables</h2>
+                        <p>Kits de skincare pensados para regalar bienestar. Combinan nuestras cremas naturales con accesorios suaves y prácticos, para una rutina de cuidado completa, relajante y especial.</p>
+                        <ShopNowButton className="imagen-section__button" />
+                    </div>
+                </div>
+            </section>
+
+            <SellersSection />
+            <NewsletterSection />
         </div>
     );
 }

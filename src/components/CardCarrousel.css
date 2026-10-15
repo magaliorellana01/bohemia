@@ -1,0 +1,47 @@
+.card-carrousel {
+    min-width: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    border: 1px solid rgba(51, 61, 41, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 5px 18px rgba(51, 61, 41, 0.07);
+}
+
+.card-carrousel__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background-color: #f1e4d0;
+}
+
+.card-carrousel__details {
+    padding: 14px 16px 16px;
+}
+
+.card-carrousel__title {
+    margin: 0 0 6px;
+    color: #333D29;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.25;
+}
+
+.card-carrousel__price {
+    margin: 0;
+    color: #4F4A4A;
+    font-family: var(--font-reading);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .card-carrousel__details {
+        padding: 11px 12px 13px;
+    }
+
+    .card-carrousel__title {
+        font-size: 1.02rem;
+    }
+}

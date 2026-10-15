@@ -1,0 +1,113 @@
+.newsletter-section {
+    display: flex;
+    width: min(1100px, calc(100% - 2 * max(20px, 5vw)));
+    min-height: 116px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+    margin: 20px auto 40px;
+    padding: 20px 28px;
+    background-color: #ffffff;
+    border: 1px solid rgba(51, 61, 41, 0.1);
+    border-radius: 18px;
+}
+
+.newsletter-section__copy {
+    min-width: 0;
+}
+
+.newsletter-section__copy h2 {
+    margin: 0 0 4px;
+    color: #333D29;
+    font-family: var(--font-heading);
+    font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+    font-weight: 600;
+}
+
+.newsletter-section__copy p {
+    margin: 0;
+    color: #4F4A4A;
+    font-family: var(--font-reading);
+    font-size: 0.95rem;
+}
+
+.newsletter-section__form {
+    position: relative;
+    display: flex;
+    flex: 0 1 470px;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.newsletter-section__form input {
+    flex: 1 1 auto;
+    min-width: 0;
+    min-height: 42px;
+    padding: 9px 13px;
+    color: #4F4A4A;
+    background-color: #ffffff;
+    border: 1px solid rgba(51, 61, 41, 0.3);
+    border-radius: 10px;
+    font-family: var(--font-reading);
+    font-size: 0.9rem;
+}
+
+.newsletter-section__form input:focus-visible {
+    border-color: #333D29;
+    outline: 2px solid rgba(51, 61, 41, 0.22);
+    outline-offset: 1px;
+}
+
+.newsletter-section__submit {
+    min-height: 42px;
+    cursor: pointer;
+}
+
+.newsletter-section__submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.newsletter-section__submit:disabled:hover {
+    color: var(--color-background);
+    background-color: #333D29;
+}
+
+.newsletter-section__message {
+    position: absolute;
+    top: calc(100% + 5px);
+    right: 0;
+    margin: 0;
+    color: #4F4A4A;
+    font-family: var(--font-reading);
+    font-size: 0.78rem;
+}
+
+@media (max-width: 760px) {
+    .newsletter-section {
+        width: calc(100% - 32px);
+        min-height: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .newsletter-section__form {
+        flex-basis: auto;
+    }
+}
+
+@media (max-width: 420px) {
+    .newsletter-section__form {
+        flex-wrap: wrap;
+    }
+
+    .newsletter-section__form input {
+        flex-basis: 100%;
+    }
+
+    .newsletter-section__submit {
+        margin-left: auto;
+    }
+}

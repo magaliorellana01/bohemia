@@ -10,9 +10,9 @@ export default function Footer() {
                     <Col md={4} className="mb-3 mb-md-0 d-flex justify-content-center justify-content-md-start" >
                         <img src={Logo} style={{ maxWidth: "100px" }} alt="Logo" />
                     </Col>
-                    <Col md={4} className="mb-3 mb-md-0 d-flex flex-column align-items-center" >
-                        <a href="#" className="text-white text-decoration-none mb-2">Preguntas Frecuentes</a>
-                        <a href="#" className="text-white text-decoration-none mb-2">Nosotros</a>
+                    <Col md={4} className="mb-3 mb-md-0 d-flex flex-row align-items-center justify-content-center gap-4" >
+                        <a href="#" className="text-white text-decoration-none">FAQ</a>
+                        <a href="#" className="text-white text-decoration-none">Nosotros</a>
                         <a href="#" className="text-white text-decoration-none">Contacto</a>
                     </Col>
                     <Col md={4} className="d-flex justify-content-center justify-content-md-end align-items-center gap-3" >

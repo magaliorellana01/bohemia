@@ -20,7 +20,7 @@ function App() {
    <Router>
     <Header/>
     
-    <div style={{ backgroundColor: "#C2C5AA", minHeight: "calc(100vh - 80px)", padding: "20px 0" }}>
+    <div style={{ backgroundColor: "var(--color-background)", minHeight: "calc(100vh - 80px)", padding: "20px 0" }}>
         <Routes>
           <Route path="/micuenta" element={<IniciarSesion />} />
           <Route path="/" element={<Home />} />

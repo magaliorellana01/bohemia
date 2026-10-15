@@ -1,0 +1,129 @@
+.sellers-section {
+    width: 100%;
+    margin-top: 20px;
+    padding: 28px max(20px, 5vw) 56px;
+}
+
+.sellers-section__title {
+    margin: 0;
+    color: #333D29;
+    font-family: var(--font-heading);
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+    font-weight: 600;
+    text-align: center;
+}
+
+.sellers-section__heading {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.sellers-section__more {
+    position: absolute;
+    right: 0;
+    white-space: nowrap;
+}
+
+.sellers-carousel {
+    position: relative;
+    padding: 0 42px;
+}
+
+.sellers-carousel__viewport {
+    overflow: hidden;
+}
+
+.sellers-carousel__track {
+    display: flex;
+    width: calc(100% * var(--items-count) / var(--visible-count));
+    transform: translateX(calc(var(--carousel-index) * -100% / var(--items-count)));
+    transition: transform 420ms ease;
+}
+
+.sellers-carousel__item {
+    flex: 0 0 calc(100% / var(--items-count));
+    min-width: 0;
+    padding: 0 14px;
+}
+
+.sellers-carousel__arrow {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    display: grid;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    place-items: center;
+    color: #333D29;
+    background-color: #ffffff;
+    border: 1px solid rgba(51, 61, 41, 0.18);
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(51, 61, 41, 0.08);
+    font-size: 1.2rem;
+    transform: translateY(-50%);
+    transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.sellers-carousel__arrow:hover:not(:disabled),
+.sellers-carousel__arrow:focus-visible {
+    color: #ffffff;
+    background-color: #333D29;
+}
+
+.sellers-carousel__arrow:focus-visible {
+    outline: 2px solid #333D29;
+    outline-offset: 3px;
+}
+
+.sellers-carousel__arrow:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.sellers-carousel__arrow--previous {
+    left: 0;
+}
+
+.sellers-carousel__arrow--next {
+    right: 0;
+}
+
+@media (max-width: 600px) {
+    .sellers-section {
+        padding: 22px 12px 40px;
+    }
+
+    .sellers-section__title {
+        font-size: clamp(1.5rem, 7vw, 1.8rem);
+    }
+
+    .sellers-section__heading {
+        margin-bottom: 18px;
+        gap: 10px;
+    }
+
+    .sellers-carousel {
+        padding: 0 34px;
+    }
+
+    .sellers-carousel__item {
+        padding: 0 8px;
+    }
+
+    .sellers-carousel__arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sellers-carousel__track {
+        transition-duration: 0.01ms;
+    }
+}
