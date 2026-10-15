@@ -65,7 +65,7 @@ export default function Header() {
                             </InputGroup.Text>
                             <Form.Control
                                 type="search"
-                                placeholder="Buscar aroma..."
+                                placeholder="Buscar producto"
                                 className="me-2"
                                 aria-label="Search"
                                 value={query}
