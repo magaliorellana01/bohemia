@@ -33,31 +33,36 @@ export default function Carrito() {
                                 </tr>
                             </thead>
                             <tbody>
-                                {cart.map(item => (
-                                    <tr key={item.id}>
+                                {cart.map(item => {
+                                    const cartKey = item.cartKey ?? item.id;
+                                    return (
+                                    <tr key={cartKey}>
                                         <td className="align-middle">
                                             <div className="d-flex align-items-center gap-3">
                                                 <Image src={item.image} alt={item.name} rounded style={{ width: 80, height: 60, objectFit: 'cover' }} />
                                                 <div>
                                                     <div className="fw-bold">{item.name}</div>
                                                     <div className="text-muted" style={{ fontSize: '0.85rem' }}>{item.category}</div>
+                                                    {item.selectedOption && (
+                                                        <div className="text-muted" style={{ fontSize: '0.85rem' }}>Aroma: {item.selectedOption}</div>
+                                                    )}
                                                 </div>
                                             </div>
                                         </td>
                                         <td className="align-middle">${item.price}</td>
                                         <td className="align-middle">
                                             <div className="d-flex align-items-center">
-                                                <Button size="sm" variant="outline-secondary" onClick={() => decreaseFromCart(item.id)}>-</Button>
+                                                <Button size="sm" variant="outline-secondary" onClick={() => decreaseFromCart(cartKey)}>-</Button>
                                                 <div className="px-3">{item.quantity}</div>
                                                 <Button size="sm" variant="outline-secondary" onClick={() => addToCart(item)}>+</Button>
                                             </div>
                                         </td>
                                         <td className="align-middle">${(item.price * item.quantity).toFixed(2)}</td>
                                         <td className="align-middle">
-                                            <Button variant="danger" size="sm" onClick={() => removeFromCart(item.id)}>Eliminar</Button>
+                                            <Button variant="danger" size="sm" onClick={() => removeFromCart(cartKey)}>Eliminar</Button>
                                         </td>
                                     </tr>
-                                ))}
+                                )})}
                             </tbody>
                         </Table>
                     </Col>

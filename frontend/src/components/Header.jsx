@@ -55,8 +55,8 @@ export default function Header() {
                 <Navbar.Collapse ref={collapseRef} id="navbar-nav">
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/" className="mx-2" onClick={handleNavClick}>Home</Nav.Link>
-                        <Nav.Link as={Link} to="/ofertas" className="mx-2" onClick={handleNavClick}>Ofertas</Nav.Link>
                         <Nav.Link as={Link} to="/productos" className="mx-2" onClick={handleNavClick}>Productos</Nav.Link>
+                        <Nav.Link as={Link} to="/ofertas" className="mx-2 nav-link--sale" onClick={handleNavClick}>SALE!</Nav.Link>
                     </Nav>
                     <Form className="d-flex me-3 my-2 my-lg-0">
                         <InputGroup>

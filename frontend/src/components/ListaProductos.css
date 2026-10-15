@@ -1,0 +1,34 @@
+.productos__toolbar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 22px;
+}
+
+.productos__sort.form-select {
+    width: min(100%, 220px);
+    min-height: 40px;
+    border: 1px solid #d8d8cc;
+    border-radius: 10px;
+    color: #333D29;
+    background-color: #fff;
+    font-family: var(--font-reading);
+    font-size: 0.9rem;
+    box-shadow: none;
+}
+
+.productos__sort.form-select:disabled {
+    color: #747766;
+    background-color: #f0ede5;
+    opacity: 1;
+    cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+    .productos__toolbar {
+        margin-bottom: 16px;
+    }
+
+    .productos__sort.form-select {
+        width: 100%;
+    }
+}

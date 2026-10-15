@@ -13,7 +13,9 @@
     font-family: var(--font-reading);
     font-size: 0.85rem;
     font-weight: 600;
+    line-height: 1.25;
     text-decoration: none;
+    cursor: pointer;
     transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
 }
 

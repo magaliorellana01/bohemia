@@ -13,13 +13,13 @@ import CardCarrousel from './CardCarrousel';
 import './SellersSection.css';
 
 const imagenesDestacadas = [
-    { src: serum, alt: 'Serum' },
-    { src: cremaTubo, alt: 'Crema en tubo' },
-    { src: vela, alt: 'Vela' },
-    { src: crema, alt: 'Crema' },
-    { src: velaDos, alt: 'Vela' },
-    { src: skinCare, alt: 'Producto de cuidado de la piel' },
-    { src: vincha, alt: 'Vincha' },
+    { productId: 'serum-facial', src: serum, alt: 'Serum', title: 'Serum Facial' },
+    { productId: 'crema-hidratante', src: cremaTubo, alt: 'Crema en tubo', title: 'Crema Hidratante' },
+    { productId: 'vela-vainilla', src: vela, alt: 'Vela', title: 'Vela de Vainilla' },
+    { productId: 'crema-nutritiva', src: crema, alt: 'Crema', title: 'Crema Nutritiva' },
+    { productId: 'vela-chocolate', src: velaDos, alt: 'Vela', title: 'Vela de Chocolate' },
+    { productId: 'kit-sunday', src: skinCare, alt: 'Producto de cuidado de la piel', title: 'Kit Sunday' },
+    { productId: 'vincha-skincare', src: vincha, alt: 'Vincha', title: 'Kit Vincha Skincare' },
 ];
 
 const cantidadVisible = () => {
@@ -32,7 +32,12 @@ export default function SellersSection() {
     const { productos = [] } = useContext(ProductsContext);
     const [indice, setIndice] = useState(0);
     const [visibles, setVisibles] = useState(4);
-    const productosDestacados = productos.slice(0, 7);
+    const productosDestacados = imagenesDestacadas
+        .map((destacado) => {
+            const producto = productos.find((item) => item.id === destacado.productId);
+            return producto ? { ...producto, name: destacado.title, imagenDestacada: destacado } : null;
+        })
+        .filter(Boolean);
     const maxIndice = Math.max(0, productosDestacados.length - visibles);
 
     useEffect(() => {
@@ -76,12 +81,12 @@ export default function SellersSection() {
                             '--carousel-index': indice,
                         }}
                     >
-                        {productosDestacados.map((producto, index) => (
+                        {productosDestacados.map((producto) => (
                             <div className="sellers-carousel__item" key={producto.id}>
                                 <CardCarrousel
                                     producto={producto}
-                                    imagen={imagenesDestacadas[index]?.src}
-                                    altImagen={imagenesDestacadas[index]?.alt}
+                                    imagen={producto.imagenDestacada.src}
+                                    altImagen={producto.imagenDestacada.alt}
                                 />
                             </div>
                         ))}

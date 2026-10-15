@@ -1,0 +1,43 @@
+.productos__title {
+    margin-bottom: 8px;
+    color: #333D29;
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+}
+
+.productos__subtitle {
+    margin: 0;
+    color: #333D29;
+    font-family: var(--font-reading);
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+}
+
+.productos__filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+}
+
+.shop-now-button.productos__filter-button {
+    min-height: 38px;
+    color: #333D29;
+    background-color: #EDE2D2;
+    border-color: #333D29;
+}
+
+.shop-now-button.productos__filter-button:hover,
+.shop-now-button.productos__filter-button:focus-visible,
+.shop-now-button.productos__filter-button--active {
+    color: var(--color-background);
+    background-color: #333D29;
+    border-color: #333D29;
+}
+
+@media (max-width: 600px) {
+    .productos__filters {
+        gap: 12px;
+    }
+}

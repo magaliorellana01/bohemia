@@ -6,6 +6,7 @@ import Home from "./pages/Home.jsx";
 import IniciarSesion from "./components/Login.jsx";
 import Ofertas from "./pages/Ofertas.jsx";
 import Productos from "./pages/Productos.jsx";
+import DetalleProducto from "./pages/DetalleProducto.jsx";
 import Carrito from "./pages/Carrito.jsx";
 import Admin from "./pages/Admin.jsx";
 // 1. IMPORTAR CON EL NUEVO NOMBRE
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ofertas" element={<Ofertas />} />
           <Route path="/productos" element={<Productos />} />
+          <Route path="/productos/:id" element={<DetalleProducto />} />
           <Route path="/carrito" element={<Carrito />} />
           
           {/* 2. USAR EL COMPONENTE EN ESPAÑOL */}
